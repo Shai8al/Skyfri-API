@@ -26,6 +26,10 @@ This project is a .NET 6 API built with Entity Framework using a Code First appr
     -   Update the config setting "SkyfriConnection" with the connection string to the database that will be used.
     
  5. Setup database migration and update
+    - Navigate to data_access directory
+      ```bash
+         cd .\data_access
+      ```
     - Add migrations:
         ```bash
             #Open Package Manager Console in Visual Studio and run the following code
