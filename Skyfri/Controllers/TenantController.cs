@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Skyfri.BL.IServices;
 using Skyfri.Models;
 using Skyfri.ViewModels;
@@ -91,7 +90,7 @@ namespace Skyfri.Controllers
         [HttpPost]
         [Consumes("application/json")]
         [SwaggerOperation(OperationId = "AddTenant")]
-        [SwaggerResponse(StatusCodes.Status201Created,Type = typeof(TenantViewModel))]
+        [SwaggerResponse(StatusCodes.Status201Created, Type = typeof(TenantViewModel))]
         [SwaggerResponse(StatusCodes.Status500InternalServerError, Type = typeof(ProblemDetails))]
         public async Task<ActionResult<TenantViewModel>> AddTenant(TenantUpdateModel tenantModel)
         {
@@ -119,7 +118,7 @@ namespace Skyfri.Controllers
         [HttpPut("{tenantId}")]
         [Consumes("application/json")]
         [SwaggerOperation(OperationId = "UpdateTenant")]
-        [SwaggerResponse(StatusCodes.Status200OK,Type=typeof(TenantViewModel))]
+        [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(TenantViewModel))]
         [SwaggerResponse(StatusCodes.Status404NotFound, Type = typeof(ProblemDetails))]
         [SwaggerResponse(StatusCodes.Status500InternalServerError, Type = typeof(ProblemDetails))]
         public async Task<ActionResult<TenantViewModel>> EditTenant(Guid tenantId, TenantUpdateModel tenantViewModel)

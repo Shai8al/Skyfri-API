@@ -1,0 +1,29 @@
+# .NET 6 specific
+*.obj
+*.bin
+*.user
+*.suo
+*.cache
+*.log
+
+# Visual Studio files
+.vs/
+*.sln
+*.csproj.user
+*.suo
+*.cache
+*.pdb
+
+# Build results
+bin/
+obj/
+
+# NuGet Packages
+*.nupkg
+*.paket/paket-files/
+*.paket/paket.restore
+packages/
+project.lock.json
+npm-debug.log
+yarn-debug.log
+yarn-error.log

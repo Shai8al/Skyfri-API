@@ -1,5 +1,4 @@
 ﻿using Skyfri.Models;
-using Skyfri.ViewModels;
 
 namespace Skyfri.BL.IServices
 {

@@ -8,14 +8,14 @@ namespace Skyfri.Mapper
     {
         public MapperProfile()
         {
-            CreateMap<Tenant,TenantViewModel>();
-            CreateMap<TenantUpdateModel,Tenant>();
+            CreateMap<Tenant, TenantViewModel>();
+            CreateMap<TenantUpdateModel, Tenant>();
 
-            CreateMap<Portfolio,PortfolioViewModel>();
-            CreateMap<PortfolioUpdateModel,Portfolio>();
+            CreateMap<Portfolio, PortfolioViewModel>();
+            CreateMap<PortfolioUpdateModel, Portfolio>();
 
-            CreateMap<Plant,PlantViewModel>();
-            CreateMap<PlantUpdateModel,Plant>();
+            CreateMap<Plant, PlantViewModel>();
+            CreateMap<PlantUpdateModel, Plant>();
         }
     }
 }

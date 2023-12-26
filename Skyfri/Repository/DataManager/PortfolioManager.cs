@@ -28,7 +28,7 @@ namespace Skyfri.Repository.DataManager
         /// <returns>List of all the portfolios associated with the tenant.</returns>
         public async Task<IEnumerable<Portfolio>> GetPortfolioByTenantIdAsync(Guid tenantId)
         {
-            return await _skyfriDbContext.Portfolios.Where(e=>e.TenantId==tenantId).ToListAsync();
+            return await _skyfriDbContext.Portfolios.Where(e => e.TenantId == tenantId).ToListAsync();
         }
 
         /// <summary>

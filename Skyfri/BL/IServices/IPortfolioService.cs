@@ -11,3 +11,4 @@ namespace Skyfri.BL.IServices
         Task DeletePortfolioAsync(Guid portfolioId);
     }
 }
+

@@ -19,7 +19,7 @@ namespace Skyfri.Controllers
         private readonly IMapper _mapper;
         private readonly ILogger _logger;
 
-        public PlantController(IPortfolioService portfolioService,IPlantService plantService,
+        public PlantController(IPortfolioService portfolioService, IPlantService plantService,
             IMapper mapper, ILogger<PlantController> logger)
         {
             _portfolioService = portfolioService;
@@ -43,7 +43,8 @@ namespace Skyfri.Controllers
             try
             {
                 var plants = await _plantService.GetPlantsByPortfolioIdAsync(portfolioId);
-                if(plants == default||plants.Count()<=0) {
+                if (plants == default || plants.Count() <= 0)
+                {
                     return Problem(
                         statusCode: StatusCodes.Status404NotFound,
                         title: "Not found",
@@ -77,7 +78,7 @@ namespace Skyfri.Controllers
             try
             {
                 var portfolio = await _portfolioService.GetPortfolioByIdAsync(portfolioId);
-                if(portfolio==default)
+                if (portfolio == default)
                 {
                     return Problem(
                         statusCode: StatusCodes.Status404NotFound,
@@ -87,7 +88,7 @@ namespace Skyfri.Controllers
                 var plant = _mapper.Map<Plant>(plantModel);
                 plant.PortfolioId = portfolioId;
                 var createdPlant = await _plantService.AddPlantAsync(plant);
-                return StatusCode(StatusCodes.Status201Created,_mapper.Map<PlantViewModel>(createdPlant));
+                return StatusCode(StatusCodes.Status201Created, _mapper.Map<PlantViewModel>(createdPlant));
             }
             catch (Exception ex)
             {
@@ -114,7 +115,7 @@ namespace Skyfri.Controllers
             try
             {
                 var portfolio = await _plantService.GetPlantsByPortfolioIdAndPlantAsync(portfolioId, plantId);
-                if(portfolio == null)
+                if (portfolio == null)
                 {
                     return Problem(
                        statusCode: StatusCodes.Status404NotFound,

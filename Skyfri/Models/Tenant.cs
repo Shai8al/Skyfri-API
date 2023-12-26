@@ -6,6 +6,6 @@
         public string TenantName { get; set; }
         public string TenantCountry { get; set; }
 
-        public virtual List<Portfolio> portfolios { get; set;}
+        public virtual List<Portfolio> portfolios { get; set; }
     }
 }

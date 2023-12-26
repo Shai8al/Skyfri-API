@@ -16,7 +16,7 @@ namespace Skyfri.Repository.DataManager
         /// Constructor to initialize TenantManager.
         /// </summary>
         /// <param name="skyfriDbContext">Instance for skyfriDbContext.</param>
-        public TenantManager(SkyfriDbContext skyfriDbContext) 
+        public TenantManager(SkyfriDbContext skyfriDbContext)
         {
             _skyfriDbContext = skyfriDbContext;
         }

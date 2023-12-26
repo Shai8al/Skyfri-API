@@ -7,7 +7,7 @@ namespace Skyfri.BL.Services
     /// <summary>
     /// Service class handling plant-related operations.
     /// </summary>
-    public class PlantService:IPlantService
+    public class PlantService : IPlantService
     {
         readonly IPlantRepository _plantRepository;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Skyfri.BL.Services
         public async Task<Plant> GetPlantsByPortfolioIdAndPlantAsync(Guid portfolioId, Guid plantId)
         {
             var plants = await _plantRepository.GetPlantsByPortfolioIdAsync(portfolioId);
-            var plant = (plants.Count()>0||plants!=null) ? plants.FirstOrDefault(x => x.PlantId == plantId) : null;
+            var plant = (plants.Count() > 0 || plants != null) ? plants.FirstOrDefault(x => x.PlantId == plantId) : null;
             return plant;
         }
 

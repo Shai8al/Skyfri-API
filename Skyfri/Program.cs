@@ -2,8 +2,6 @@ using Microsoft.EntityFrameworkCore;
 using Skyfri.BL.IServices;
 using Skyfri.BL.Services;
 using Skyfri.data_access;
-using Skyfri.Models;
-using Skyfri.Repository;
 using Skyfri.Repository.DataManager;
 using Skyfri.Repository.IDataManager;
 using System.Reflection;
@@ -29,7 +27,7 @@ builder.Services.AddDbContext<SkyfriDbContext>(options => options.UseSqlServer(b
 builder.Services.AddAutoMapper(typeof(Program));
 
 //use repositories
-builder.Services.AddTransient<ITenantRepository,TenantManager>();
+builder.Services.AddTransient<ITenantRepository, TenantManager>();
 builder.Services.AddTransient<IPortfolioRepository, PortfolioManager>();
 builder.Services.AddTransient<IPlantRepository, PlantManager>();
 

@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Skyfri.BL.IServices;
-using Skyfri.BL.Services;
 using Skyfri.Models;
 using Skyfri.ViewModels;
 using Swashbuckle.AspNetCore.Annotations;
@@ -21,7 +20,7 @@ namespace Skyfri.Controllers
         private readonly IMapper _mapper;
         private readonly ILogger _logger;
 
-        public PortfolioController(IPortfolioService portfolioService,ITenantService tenantService, IMapper mapper, ILogger<PortfolioController> logger)
+        public PortfolioController(IPortfolioService portfolioService, ITenantService tenantService, IMapper mapper, ILogger<PortfolioController> logger)
         {
             _logger = logger;
             _portfolioService = portfolioService;
@@ -44,7 +43,7 @@ namespace Skyfri.Controllers
             try
             {
                 var portfolios = await _portfolioService.GetPortfolioByTenantIdAsync(tenantId);
-                if (portfolios == default||portfolios.Count()<=0)
+                if (portfolios == default || portfolios.Count() <= 0)
                 {
                     return Problem(
                         statusCode: StatusCodes.Status404NotFound,
@@ -71,7 +70,7 @@ namespace Skyfri.Controllers
         [HttpPost]
         [Consumes("application/json")]
         [SwaggerOperation(OperationId = "AddPortfolio")]
-        [SwaggerResponse(StatusCodes.Status201Created,Type = typeof(PortfolioViewModel))]
+        [SwaggerResponse(StatusCodes.Status201Created, Type = typeof(PortfolioViewModel))]
         [SwaggerResponse(StatusCodes.Status404NotFound, Type = typeof(ProblemDetails))]
         [SwaggerResponse(StatusCodes.Status500InternalServerError, Type = typeof(ProblemDetails))]
         public async Task<ActionResult> AddPortfolio(PortfolioUpdateModel portfolioModel, Guid tenantId)
@@ -79,7 +78,7 @@ namespace Skyfri.Controllers
             try
             {
                 var tenant = await _tenantService.GetTenantByIdAsync(tenantId);
-                if(tenant == default)
+                if (tenant == default)
                 {
                     return Problem(
                         statusCode: StatusCodes.Status404NotFound,
@@ -89,7 +88,7 @@ namespace Skyfri.Controllers
                 var portfolio = _mapper.Map<Portfolio>(portfolioModel);
                 portfolio.TenantId = tenantId;
                 var createdPortfolio = await _portfolioService.AddPortfolioAsync(portfolio);
-                return StatusCode(StatusCodes.Status201Created,_mapper.Map<PortfolioViewModel>(createdPortfolio));
+                return StatusCode(StatusCodes.Status201Created, _mapper.Map<PortfolioViewModel>(createdPortfolio));
             }
             catch (Exception ex)
             {
@@ -116,7 +115,8 @@ namespace Skyfri.Controllers
             try
             {
                 var portfolio = await _portfolioService.GetByTenantAndPortfolioIdAsync(tenantId, portfolioId);
-                if(portfolio == default) {
+                if (portfolio == default)
+                {
                     return Problem(
                         statusCode: StatusCodes.Status404NotFound,
                         title: "Not found",

@@ -1,14 +1,13 @@
 ﻿using Skyfri.BL.IServices;
 using Skyfri.Models;
 using Skyfri.Repository.IDataManager;
-using Skyfri.ViewModels;
 
 namespace Skyfri.BL.Services
 {
     /// <summary>
     /// Service class handling tenant-related operations.
     /// </summary>
-    public class TenantService :ITenantService
+    public class TenantService : ITenantService
     {
         readonly ITenantRepository _tenantRepository;
         /// <summary>
